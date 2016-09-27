@@ -15,6 +15,10 @@ Or install it yourself as:
 
     $ gem install ya_direct_api
 
+Test with rake:
+
+    $ rake
+
 ## Usage
 
 OAuth2 Yandex token is needed. Use [omniauth-yandex](https://github.com/evrone/omniauth-yandex/) to receive it. Install it according by following manual: [Rails Authentication with OAuth 2.0 and OmniAuth](https://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/).
@@ -38,7 +42,7 @@ Call methods from versions 4 and 4 Live:
 
 ```
 @direct = Ya::API::Direct::Client.new({ token: Token })
-json = direct.V4.GetCampaignsList []
+json = direct.v4.GetCampaignsList []
 ```
 
 All names of controllers and methods are equal to ones from Direct API help. 4 vs 4 Live is autodetected.
