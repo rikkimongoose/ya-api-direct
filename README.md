@@ -25,7 +25,7 @@ OAuth2 Yandex token is needed. Use [omniauth-yandex](https://github.com/evrone/o
 
 Call methods of Yandex Direct API 5:
 
-```
+```ruby
 request = {
     "SelectionCriteria" => {
       "Types" => ["TEXT_CAMPAIGN"]
@@ -40,7 +40,7 @@ json = direct.campaigns.get request
 
 Call methods from versions 4 and 4 Live:
 
-```
+```ruby
 @direct = Ya::API::Direct::Client.new({ token: Token })
 json = direct.v4.GetCampaignsList []
 ```
@@ -52,7 +52,7 @@ All names of controllers and methods are equal to ones from Direct API help. 4 v
 By default the client class sends request to clients. You can avoid it by turning this option off, like this:
 
 
-```
+```ruby
 @direct = Ya::API::Direct::Client.new({ token: Token, cache: false })
 ```
 
