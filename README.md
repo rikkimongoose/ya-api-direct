@@ -1,11 +1,15 @@
-# ya-api-direct
-A Ruby interface to Yandex Direct API
+# Ya::Api::Direct
+A Ruby interface to Yandex Direct API. Supported versions 4, 4 Live, 5.
+
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ya/api/direct`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'ya-api-direct'
+```ruby
+gem 'ya-api-direct'
+```
 
 And then execute:
 
@@ -13,11 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ya_direct_api
-
-Test with rake:
-
-    $ rake
+    $ gem install ya-api-direct
 
 ## Usage
 
@@ -73,10 +73,17 @@ Units data of last request is stored in ``units_data`` property. There're 3 keys
 * [Yandex Direct API 5 manual](https://tech.yandex.ru/direct/doc/dg/concepts/about-docpage/)
 * [Yandex Direct API 4 and 4 Live manual](https://tech.yandex.ru/direct/doc/dg-v4/concepts/About-docpage/)
 
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
 ## Contributing
 
-1. Fork it ( http://github.com/rikkimongoose/ya-api-direct/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Bug reports and pull requests are welcome on GitHub at https://github.com/rikkimongoose/ya-api-direct. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+

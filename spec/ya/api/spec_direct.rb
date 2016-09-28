@@ -145,6 +145,10 @@ describe Ya::API::Direct::Client do
       @clientV5 = Ya::API::Direct::Client.new(token: Token)
   end
 
+  describe "has version number" do
+    refute_nil ::Ya::Api::Direct::VERSION
+  end
+
 	describe "when does a request" do
 		it "works well with version 4" do
       assert @clientV4.v4.GetCampaignsList == @campaigns_get_body
