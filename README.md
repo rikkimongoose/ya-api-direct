@@ -34,7 +34,8 @@ request = {
     "TextCampaignFieldNames" => ["BiddingStrategy"]
 }
 
-@direct = Ya::API::Direct::Client.new({ token: Token })
+options = { token: Token }
+@direct = Ya::API::Direct::Client.new(options)
 json = direct.campaigns.get request
 ```
 
@@ -46,6 +47,16 @@ json = direct.v4.GetCampaignsList []
 ```
 
 All names of controllers and methods are equal to ones from Direct API help. 4 vs 4 Live is autodetected.
+
+Allowed options:
+* ``token:`` Yandex Direct API token. Required field. 
+* ``app_id:`` Application ID. Isn't required. Used for Yandex stat.
+* ``login:`` Application login. Isn't required. Used for Yandex stat.
+* ``locale:`` One of locales, supported by Yandex API ('en' or 'ru'). By default: 'en'.
+* ``mode:`` Yandex Direct API server to send requests (``:sandbox`` or ``production``). By default: ``:sandbox``.
+* ``cache:`` send caching request after creating the instance.  By default: ``true``.
+* ``api:`` used only to make caching request (:v5 or :v4),  By default: ``:v5``.
+* ``ssl:`` use SSL connection. By default: ``true``.
 
 ## Caching
 
@@ -86,4 +97,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/rikkim
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
