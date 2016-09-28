@@ -1,4 +1,4 @@
-require 'ya-api-direct'
+require 'ya/api/direct'
 require 'minitest/autorun'
 require 'minitest/spec'
 

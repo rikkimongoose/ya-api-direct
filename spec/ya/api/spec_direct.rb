@@ -1,4 +1,5 @@
-require 'ya-api-direct'
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'ya/api/direct'
 require 'minitest/autorun'
 require 'webmock/minitest'
 
@@ -143,10 +144,6 @@ describe Ya::API::Direct::Client do
 
       @clientV4 = Ya::API::Direct::Client.new(token: Token, api: :v4)
       @clientV5 = Ya::API::Direct::Client.new(token: Token)
-  end
-
-  describe "has version number" do
-    refute_nil ::Ya::Api::Direct::VERSION
   end
 
 	describe "when does a request" do
