@@ -4,8 +4,8 @@ require "ya/api/direct/direct_service_base"
 module Ya::API::Direct
   class DirectServiceV4 < DirectServiceBase
 
-    def initialize(client, methods, version = :v4)
-      super(client, methods)
+    def initialize(client, methods_data, version = :v4)
+      super(client, methods_data)
       @version = version
     end
 

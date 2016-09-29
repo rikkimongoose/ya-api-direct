@@ -4,8 +4,8 @@ module Ya::API::Direct
   class DirectServiceV5 < DirectServiceBase
     attr_reader :service, :service_url
 
-    def initialize(client, service, methods)
-      super(client, methods)
+    def initialize(client, service, methods_data)
+      super(client, methods_data)
       @service = service
       @service_url = service.downcase
       @version = :v5

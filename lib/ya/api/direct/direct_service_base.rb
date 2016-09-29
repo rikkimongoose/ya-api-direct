@@ -1,9 +1,9 @@
 module Ya::API::Direct
   class DirectServiceBase
     attr_reader :method_items, :version
-    def initialize(client, methods)
+    def initialize(client, methods_data)
       @client = client
-      @method_items = methods
+      @method_items = methods_data
       init_methods
     end
 
