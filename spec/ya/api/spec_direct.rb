@@ -2,7 +2,6 @@ require 'ya/api/direct'
 require 'minitest/autorun'
 require 'webmock/minitest'
 
-
 describe Ya::API::Direct::Client do
   Token = "TOKEN"
 
@@ -121,7 +120,7 @@ describe Ya::API::Direct::Client do
       )
       .to_return(
           status: 200,
-      	  body: @campaigns_get_body.to_json,
+      	  body: @init_caching_body_v4.to_json,
       	  headers: units_header
       )
 
