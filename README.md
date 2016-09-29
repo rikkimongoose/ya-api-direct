@@ -75,9 +75,9 @@ Date returned with first call of caching method is stored in ``cache_timestamp``
 
 Units data of last request is stored in ``units_data`` property. There're 3 keys in this hash:
 
-* ``just_used``
-* ``units_left``
-* ``units_limit``
+* ``just_used`` - units used by last request.
+* ``units_left`` - units left for the current session.
+* ``units_limit`` - units limit for a session of your account.
 
 They were added only in Yandex Direct API 5. Calling the methods from 4 or 4 Live doesn't update them.
 
