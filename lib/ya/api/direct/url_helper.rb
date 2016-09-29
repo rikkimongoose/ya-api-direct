@@ -1,6 +1,5 @@
 require "json"
 
-require "ya/api/direct/constants"
 require "ya/api/direct/exception"
 
 module Ya::API::Direct

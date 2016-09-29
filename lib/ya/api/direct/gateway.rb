@@ -33,7 +33,7 @@ module Ya::API::Direct
 
     def generate_header(ver)
       header = {}
-      if ver == :v5
+      if [:v5].include? ver
         header.merge!({
           'Client-Login' => @config[:login],
           'Accept-Language' => @config[:locale],
