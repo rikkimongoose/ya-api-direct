@@ -43,7 +43,7 @@ Call methods from versions 4 and 4 Live:
 
 ```ruby
 @direct = Ya::API::Direct::Client.new({ token: Token })
-json = direct.v4.GetCampaignsList []
+json = direct.v4.GetCampaignsList
 ```
 
 All names of controllers and methods are equal to ones from Direct API help. 4 vs 4 Live is autodetected.
@@ -74,9 +74,12 @@ Date returned with first call of caching method is stored in ``cache_timestamp``
 ## Units data
 
 Units data of last request is stored in ``units_data`` property. There're 3 keys in this hash:
+
 * ``just_used``
 * ``units_left``
 * ``units_limit``
+
+They were added only in Yandex Direct API 5. Calling the methods from 4 or 4 Live doesn't update them.
 
 ## Useful links
 

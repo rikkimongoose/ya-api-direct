@@ -11,7 +11,14 @@ describe Ya::API::Direct::Client do
         units_left: 20828,
         units_limit: 64000
     }
+    @units_another = {
+        just_used: 20,
+        units_left: 10828,
+        units_limit: 54000
+    }
+
     units_header = {"Units" => "%{just_used}/%{units_left}/%{units_limit}" % @units }
+    units_header_another = {"Units" => "%{just_used}/%{units_left}/%{units_limit}" % @units_another }
 
     @campaigns_get_body = {
     	     "result" => {
@@ -111,7 +118,7 @@ describe Ya::API::Direct::Client do
     stub_request(:post, "https://api-sandbox.direct.yandex.ru/live/v4/json")
       .with(
           headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'},
-      	  body: {
+          body: {
             "method" => "GetCampaignsList",
             "params" => {},
             "locale" => "en",
@@ -120,8 +127,8 @@ describe Ya::API::Direct::Client do
       )
       .to_return(
           status: 200,
-      	  body: @init_caching_body_v4.to_json,
-      	  headers: units_header
+          body: @campaigns_get_body.to_json,
+          headers: units_header
       )
 
     stub_request(:post, "https://api-sandbox.direct.yandex.ru/live/v4/json").
@@ -146,6 +153,7 @@ describe Ya::API::Direct::Client do
 
 	describe "when does a request" do
 		it "works well with version 4" do
+      p @clientV4.v4.GetCampaignsList
       assert @clientV4.v4.GetCampaignsList == @campaigns_get_body
 		end
 		it "works well with version 5" do
@@ -156,7 +164,8 @@ describe Ya::API::Direct::Client do
 	describe "when units data is updated" do
     it "works well in version 4" do
       @clientV4.v4.GetCampaignsList
-      assert @clientV4.units_data == @units
+      # no units data in ver 4 and 4 Live
+      assert @clientV4.units_data != @units
     end
 		it "works well in version 5" do
       @clientV5.campaigns.get

@@ -68,9 +68,9 @@ module Ya::API::Direct
       when :v5
         result = @gateway.request("checkDictionaries", {}, "changes", :v5)
         timestamp = result[:data]['result']['Timestamp']
+        update_units_data result[:units_data]
       end
       @cache_timestamp = Time.parse(timestamp)
-      update_units_data result[:units_data]
       @cache_timestamp
     end
 

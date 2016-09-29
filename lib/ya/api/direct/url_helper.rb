@@ -54,6 +54,7 @@ module Ya::API::Direct
     # @return [Hash] Units data, extracted from header
     def self.extract_response_units(response_header)
       matched = RegExUnits.match response_header["Units"]
+      matched.nil? ? {} :
       {
         just_used: matched[1].to_i,
         units_left: matched[2].to_i,
@@ -63,13 +64,14 @@ module Ya::API::Direct
 
     private
 
-    def self.parse_data(response)
+    def self.parse_data(response, ver)
       response_body = JSON.parse(response.body)
       validate_response! response_body
-      {
-         data: response_body,
-         units_data: self.extract_response_units(response)
-      }
+      result = { data: response_body }
+      if [:v5].include? ver
+        result.merge!({ units_data: self.extract_response_units(response) })
+      end
+      result
     end
 
     def self.validate_response!(response_body)

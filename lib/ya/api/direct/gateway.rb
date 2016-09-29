@@ -25,7 +25,7 @@ module Ya::API::Direct
       http.verify_mode = @config[:ssl] ? OpenSSL::SSL::VERIFY_PEER : OpenSSL::SSL::VERIFY_NONE
       response = http.request(request)
       if response.kind_of? Net::HTTPSuccess
-        UrlHelper.parse_data response
+        UrlHelper.parse_data response, ver
       else
         raise response.inspect
       end
