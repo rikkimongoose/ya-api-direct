@@ -4,6 +4,8 @@ require "ya/api/direct/direct_service_v4"
 require "ya/api/direct/direct_service_v5"
 require "ya/api/direct/exception"
 
+require 'time'
+
 module Ya::API::Direct
   AllowedAPIVersions = [:v5, :v4]
 
