@@ -1,4 +1,3 @@
-require "ya/api/direct/constants"
 require "ya/api/direct/direct_service_base"
 
 module Ya::API::Direct

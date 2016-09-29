@@ -1,5 +1,3 @@
-require "ya/api/direct/constants"
-
 module Ya::API::Direct
   class DirectServiceBase
     attr_reader :method_items, :version

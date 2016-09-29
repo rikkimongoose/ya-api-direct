@@ -153,7 +153,6 @@ describe Ya::API::Direct::Client do
 
 	describe "when does a request" do
 		it "works well with version 4" do
-      p @clientV4.v4.GetCampaignsList
       assert @clientV4.v4.GetCampaignsList == @campaigns_get_body
 		end
 		it "works well with version 5" do
