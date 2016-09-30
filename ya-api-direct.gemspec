@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date        = '2016-09-05'
   s.summary     = "Yandex Direct API v5"
   s.description = "Ruby implementation for Yandex Direct API of versions 5, 4 and 4 Live"
-  s.authors     = %w("Rikki Mongoose")
+  s.authors     = "Rikki Mongoose"
   s.email       = 'alexander.a.teut@gmail.com'
   s.homepage    = 'http://rubygems.org/gems/ya-api-direct'
   s.license     = 'MIT'
