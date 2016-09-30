@@ -83,9 +83,11 @@ They were added only in Yandex Direct API 5. Calling the methods from 4 or 4 Liv
 
 ## Useful links
 
-* [Intruduction to Yandex Direct API](https://yandex.ru/adv/edu/direct-api)
+* [Introduction to Yandex Direct API](https://yandex.ru/adv/edu/direct-api)
 * [Yandex Direct API 5 manual](https://tech.yandex.ru/direct/doc/dg/concepts/about-docpage/)
 * [Yandex Direct API 4 and 4 Live manual](https://tech.yandex.ru/direct/doc/dg-v4/concepts/About-docpage/)
+* [Yandex OAuth API manual](https://tech.yandex.ru/oauth/)
+* [Rails Authentication with OAuth 2.0 and OmniAuth](https://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/)
 
 ## Development
 
