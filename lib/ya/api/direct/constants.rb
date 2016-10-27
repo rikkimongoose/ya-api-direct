@@ -2,11 +2,8 @@ module Ya
   module API
     module Direct
       API_V5 = {
-        "Campaigns" => [
-          "add", "update", "delete", "suspend", "resume", "archive", "unarchive", "get"
-        ],
         "AdGroups" => [
-        "add", "update", "delete", "get"
+	  "add", "update", "delete", "get"
         ],
         "Ads" => [
           "add", "update", "delete", "suspend", "resume", "archive", "unarchive", "moderate", "get"
