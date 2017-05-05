@@ -43,9 +43,10 @@ module Ya::API::Direct
     end
 
     def generate_body(method, params, ver)
+      params_key = [:v4, :v4live].include?(ver) ?  'param' : 'params'
       body = {
-          "method" => method,
-          "params" => params
+          'method' => method,
+          params_key => params
         }
       if [:v4, :v4live].include? ver
         body.merge!({

@@ -83,6 +83,7 @@ module Ya
       API_V4_LIVE = [
         "CreateOrUpdateCampaign",
         "GetCampaignsList",
+        "GetSummaryStat",
         "GetCampaignsListFilter",
         "GetCampaignsParams",
         "DeleteCampaign",
