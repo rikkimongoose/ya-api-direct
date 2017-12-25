@@ -3,7 +3,7 @@ module Ya
     module Direct
       API_V5 = {
         "AdGroups" => [
-	  "add", "update", "delete", "get"
+	       "add", "update", "delete", "get"
         ],
         "Ads" => [
           "add", "update", "delete", "suspend", "resume", "archive", "unarchive", "moderate", "get"
@@ -34,7 +34,8 @@ module Ya
         ],
         "VCards" => [
           "add", "get", "delete"
-        ]
+        ],
+        "Reports" => ["get"]
       }
       
       API_V4 = [

@@ -2,6 +2,7 @@ require "json"
 
 require "ya/api/direct/exception"
 
+
 module Ya::API::Direct
   RegExUnits = Regexp.new /(\d+)\/(\d+)\/(\d+)/
   # Static class with helping functions for url formatting.
@@ -45,6 +46,7 @@ module Ya::API::Direct
           site: site,
           service: service
         }
+
   	end
 
     # Extract Yandex Direct API units values from responce HTTP header
@@ -64,13 +66,17 @@ module Ya::API::Direct
     private
 
     def self.parse_data(response, ver)
-      response_body = JSON.parse(response.body)
-      validate_response! response_body
-      result = { data: response_body }
-      if [:v5].include? ver
-        result.merge!({ units_data: self.extract_response_units(response) })
+      if response["Content-Type"] == "application/json; charset=utf-8"
+        response_body = JSON.parse(response.body)
+        validate_response! response_body
+        result = { data: response_body }
+        if [:v5].include? ver
+          result.merge!({ units_data: self.extract_response_units(response) })
+        end
+        result
+      else
+        {data: from_tsv_to_json(response.body)}
       end
-      result
     end
 
     def self.validate_response!(response_body)
@@ -78,6 +84,21 @@ module Ya::API::Direct
         response_error = response_body['error']
         raise Exception.new(response_error['error_detail'], response_error['error_string'], response_error['error_code'])
       end
+    end
+
+    def self.from_tsv_to_json(response_body)
+      report_name = response_body.slice!(/^(.+?)\n/)
+      keys = response_body.slice!(/^(.+?)\n/).split("\t")
+      rows = response_body.match(/rows:(.+?)\n/)[1].to_i - 1
+      values = []
+      rows.times do |row|
+        hash_values = {}
+        response_body.slice!(/^(.+?)\n/).split("\t").each_with_index do |value, index|
+          hash_values[keys[index].gsub("\n", "")] = value.gsub("\n", "")
+        end
+        values.push(hash_values)
+      end
+      values
     end
 	end
 end
