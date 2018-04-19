@@ -29,6 +29,9 @@ module Ya
         "Keywords" => [
           "add", "update", "delete", "suspend", "resume", "get"
         ],
+        "KeywordsResearch" => [
+          "hasSearchVolume"
+        ],
         "Sitelinks" => [
           "add", "get", "delete"
         ],
@@ -37,7 +40,7 @@ module Ya
         ],
         "Reports" => ["get"]
       }
-      
+
       API_V4 = [
         "GetBalance",
         "GetSummaryStat",
@@ -66,7 +69,7 @@ module Ya
         "GetSubClients",
         "GetClientInfo",
         "UpdateClientInfo",
-        
+
         "CreateNewSubclient",
         "GetClientsList",
 
