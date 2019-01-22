@@ -36,14 +36,14 @@ request = {
 
 options = { token: Token }
 @direct = Ya::API::Direct::Client.new(options)
-json = direct.campaigns.get request
+json = @direct.campaigns.get request
 ```
 
 Call methods from versions 4 and 4 Live:
 
 ```ruby
 @direct = Ya::API::Direct::Client.new({ token: Token })
-json = direct.v4.GetCampaignsList
+json = @direct.v4.GetCampaignsList
 ```
 
 All names of controllers and methods are equal to ones from Direct API help. 4 vs 4 Live is autodetected.
