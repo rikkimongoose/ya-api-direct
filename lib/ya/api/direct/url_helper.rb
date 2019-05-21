@@ -66,7 +66,7 @@ module Ya::API::Direct
     private
 
     def self.parse_data(response, ver)
-      if response["Content-Type"] == "application/json; charset=utf-8"
+      if response["Content-Type"].include?('application/json')
         response_body = JSON.parse(response.body)
         validate_response! response_body
         result = { data: response_body }
