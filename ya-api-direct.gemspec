@@ -6,7 +6,7 @@ require 'ya/api/direct/version'
 Gem::Specification.new do |s|
   s.name        = 'ya-api-direct'
   s.version     = Ya::Api::Direct::VERSION
-  s.date        = '2018-04-19'
+  s.date        = '2019-08-01'
   s.summary     = "Yandex Direct API v5, v4 and v4 Live"
   s.description = "Ruby implementation for Yandex Direct API of versions 5, 4 and 4 Live"
   s.authors     = "Rikki Mongoose"
