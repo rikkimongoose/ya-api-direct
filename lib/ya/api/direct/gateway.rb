@@ -23,7 +23,14 @@ module Ya::API::Direct
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = @config[:ssl] ? OpenSSL::SSL::VERIFY_PEER : OpenSSL::SSL::VERIFY_NONE
-      response = http.request(request)
+
+      begin
+        response = http.request(request)
+        if (response.kind_of? Net::HTTPCreated) || (response.kind_of? Net::HTTPAccepted)
+          sleep response['retryIn'].to_i
+        end
+      end while(response.kind_of? Net::HTTPCreated) || (response.kind_of? Net::HTTPAccepted)
+
       if response.kind_of? Net::HTTPSuccess
         UrlHelper.parse_data response, ver
       else
