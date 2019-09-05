@@ -89,7 +89,7 @@ module Ya::API::Direct
     def self.from_tsv_to_json(response_body)
       report_name = response_body.slice!(/^(.+?)\n/)
       keys = response_body.slice!(/^(.+?)\n/).split("\t")
-      rows = response_body.match(/rows:(.+?)\n/)[1].to_i - 1
+      rows = response_body.match(/rows:(.+?)\n/)[1].to_i
       values = []
       rows.times do |row|
         hash_values = {}
