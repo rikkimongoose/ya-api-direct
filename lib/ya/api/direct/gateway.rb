@@ -7,7 +7,7 @@ require "ya/api/direct/url_helper"
 
 module Ya::API::Direct
   class Gateway
-    attr_reader :config
+    attr_reader :config, :response
     def initialize(config)
       @config = config
     end
@@ -30,6 +30,8 @@ module Ya::API::Direct
           sleep response['retryIn'].to_i
         end
       end while(response.kind_of? Net::HTTPCreated) || (response.kind_of? Net::HTTPAccepted)
+
+      @response = response
 
       if response.kind_of? Net::HTTPSuccess
         UrlHelper.parse_data response, ver
