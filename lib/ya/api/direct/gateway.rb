@@ -4,6 +4,7 @@ require "json"
 
 require "ya/api/direct/constants"
 require "ya/api/direct/url_helper"
+require "ya/api/direct/exceptions"
 
 module Ya::API::Direct
   class Gateway
@@ -36,7 +37,12 @@ module Ya::API::Direct
       if response.kind_of? Net::HTTPSuccess
         UrlHelper.parse_data response, ver
       else
-        raise response.inspect
+        raise RequestError.new(
+          method: method,
+          version: ver,
+          request: request,
+          response: response
+        )
       end
     end
 
