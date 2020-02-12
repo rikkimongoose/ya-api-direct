@@ -81,8 +81,7 @@ module Ya::API::Direct
 
     def self.validate_response!(response_body)
       if response_body.has_key? 'error'
-        response_error = response_body['error']
-        raise Exception.new(response_error['error_detail'], response_error['error_string'], response_error['error_code'])
+        raise Exception.new( response_body['error'] )
       end
     end
 

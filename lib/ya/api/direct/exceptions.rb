@@ -2,16 +2,14 @@ require "ya/api/direct/constants"
 
 module Ya::API::Direct
   class Exception < StandardError
-    attr_reader :error_detail, :error_code, :error_str
+    attr_reader :error
 
-    def initialize(error_detail, error_str, error_code)
-      @error_detail = error_detail
-      @error_str = error_str
-      @error_code = error_code
+    def initialize( error )
+      @error = error
     end
 
     def to_s
-      "#{@error_str} : #{@error_detail} : #{@error_code}"
+      [ @error['error_code'], @error['error_string'], @error['error_detail'], @error['request_id'] ].join(' : ')
     end
   end
 
