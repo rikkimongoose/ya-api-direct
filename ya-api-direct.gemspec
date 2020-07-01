@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "bundler", "~> 1.12"
-  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency "rake", ">= 12.3.3"
   s.add_development_dependency "minitest", "~> 5.0"
 end
