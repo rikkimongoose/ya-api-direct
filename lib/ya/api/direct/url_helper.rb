@@ -1,6 +1,6 @@
 require "json"
 
-require "ya/api/direct/exception"
+require "ya/api/direct/exceptions"
 
 
 module Ya::API::Direct
@@ -10,7 +10,7 @@ module Ya::API::Direct
   # @author Rikki Mongoose
 	class UrlHelper
       # Generate Yandex Direct API url for a call
-      # 
+      #
       # @param mode [Symbol] Direct API mode, `:sandbox` or `:production`
       # @param mode [Symbol] Direct API version, `:v5` or `:v4` or `:v4live`
       # @param mode [Symbol] Direct API service to use
@@ -50,7 +50,7 @@ module Ya::API::Direct
   	end
 
     # Extract Yandex Direct API units values from responce HTTP header
-    # 
+    #
     # @param responce_header [Hash] Yandex Direct API response header
     # @return [Hash] Units data, extracted from header
     def self.extract_response_units(response_header)
@@ -81,8 +81,7 @@ module Ya::API::Direct
 
     def self.validate_response!(response_body)
       if response_body.has_key? 'error'
-        response_error = response_body['error']
-        raise Exception.new(response_error['error_detail'], response_error['error_string'], response_error['error_code'])
+        raise Exception.new( response_body['error'] )
       end
     end
 

@@ -4,10 +4,11 @@ require "json"
 
 require "ya/api/direct/constants"
 require "ya/api/direct/url_helper"
+require "ya/api/direct/exceptions"
 
 module Ya::API::Direct
   class Gateway
-    attr_reader :config
+    attr_reader :config, :response
     def initialize(config)
       @config = config
     end
@@ -31,10 +32,17 @@ module Ya::API::Direct
         end
       end while(response.kind_of? Net::HTTPCreated) || (response.kind_of? Net::HTTPAccepted)
 
+      @response = response
+
       if response.kind_of? Net::HTTPSuccess
         UrlHelper.parse_data response, ver
       else
-        raise response.inspect
+        raise RequestError.new(
+          method: method,
+          version: ver,
+          request: request,
+          response: response
+        )
       end
     end
 

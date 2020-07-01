@@ -2,7 +2,7 @@ require "ya/api/direct/constants"
 require "ya/api/direct/gateway"
 require "ya/api/direct/direct_service_v4"
 require "ya/api/direct/direct_service_v5"
-require "ya/api/direct/exception"
+require "ya/api/direct/exceptions"
 
 require 'time'
 
@@ -14,7 +14,7 @@ module Ya::API::Direct
   class Client
     attr_reader :cache_timestamp, :units_data, :gateway,
                 :v4, :v5
-    
+
     # Initializes a new Client object
     #
     # @param config [Hash]
@@ -75,7 +75,7 @@ module Ya::API::Direct
     end
 
     private
-    
+
     def init_v4
       @v4 = DirectServiceV4.new self, (API_V4 + API_V4_LIVE)
     end
