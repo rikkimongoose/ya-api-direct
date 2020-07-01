@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jruby-openssl', platforms: :jruby
-gem 'rake'
+gem 'rake', '>= 12.3.3'
 gem 'yard'
 #gem 'tsv'
 
