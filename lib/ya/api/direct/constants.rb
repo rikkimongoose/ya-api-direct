@@ -11,32 +11,74 @@ module Ya
         "Ads" => [
           "add", "update", "delete", "suspend", "resume", "archive", "unarchive", "moderate", "get"
         ],
+        "AdExtensions" => [
+          "add", "delete", "get"
+        ],
+        "AdImages" => [
+          "add", "delete", "get"
+        ],
+        "AudienceTargets" => [
+          "add", "delete", "suspend", "resume", "get", "setBids"
+        ],
         "Bids" => [
           "set", "setAuto", "get"
         ],
         "BidModifiers" => [
-            "add", "delete", "get", "set", "toggle"
-          ],
+          "add", "delete", "get", "set", "toggle"
+        ],
+        "Businesses" => [
+          "get"
+        ],
         "Campaigns" => [
             "add", "update", "delete", "suspend", "resume", "archive", "unarchive", "get"
-          ],
+        ],
         "Changes" => [
             "checkDictionaries", "checkCampaigns", "check"
-          ],
+        ],
+        "Clients" => [
+          "get", "update"
+        ],
+        "Creatives" => [
+          "get"
+        ],
         "Dictionaries" => [
-            "get"
+          "get"
+        ],
+        "DynamicFeedAdTargets" => [
+          "add", "delete", "suspend", "resume", "get", "setBids"
         ],
         "DynamicTextAdTargets" => [
           "add", "delete", "suspend", "resume", "get", "setBids"
         ],
+        "Feeds" => [
+          "add", "delete", "get", "update"
+        ],
         "Keywords" => [
           "add", "update", "delete", "suspend", "resume", "get"
         ],
+        "KeywordBids" => [
+          "set", "setAuto", "get"
+        ],
         "KeywordsResearch" => [
-          "hasSearchVolume"
+          "hasSearchVolume", "deduplicate"
+        ],
+        "Leads" => [
+          "get"
+        ],
+        "NegativeKeywordSharedSets" => [
+          "add", "update", "delete", "get"
+        ],
+        "RetargetingLists" => [
+          "add", "update", "delete", "get"
         ],
         "Sitelinks" => [
           "add", "get", "delete"
+        ],
+        "SmartAdTargets" => [
+          "add", "update", "setBids", "delete", "suspend", "resume", "get"
+        ],
+        "TurboPages" => [
+          "get"
         ],
         "VCards" => [
           "add", "get", "delete"
